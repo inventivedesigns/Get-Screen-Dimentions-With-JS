@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Screen Dimensions</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script><script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <style>
+        .starter-template {margin-top:60px;padding:30px;}
+        h1 {margin-bottom:50px;}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="starter-template" style="text-align:center;">
+            <h1>Get Screen Dimensions in JavaScript</h1>
+            <p class="lead">Width: <span id="screenWidth"></span></p>
+            <p class="lead">Height: <span id="screenHeight"></span></p>
+        </div>
+    </div>
+
+
+    <div classs="scripts">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                getScreenDimensions();
+            });
+            function getScreenDimensions() {
+                var width = window.innerWidth
+                    || document.documentElement.clientWidth
+                    || document.body.clientWidth;
+                var height = window.innerHeight
+                    || document.documentElement.clientHeight
+                    || document.body.clientHeight;
+                $('#screenWidth').html(width);
+                $('#screenHeight').html(height);
+
+                window.onresize = function (event) {
+                    width = window.innerWidth
+                        || document.documentElement.clientWidth
+                        || document.body.clientWidth;
+                    height = window.innerHeight
+                        || document.documentElement.clientHeight
+                        || document.body.clientHeight;
+                    $('#screenWidth').html(width);
+                    $('#screenHeight').html(height);
+                };
+            }
+        </script>
+    </div>
+
+</body>
+</html>
